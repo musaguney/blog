@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+    <head>
+            
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['RAM', 'GB'],
+        ['Kullanilan Ram Miktari',     (4.239-3.456)],
+
+        ['Toplam Bos Ram Miktari',    3.456],
+        ]);
+
+        var options = {
+        title: 'Ram kullanim miktari',
+        is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+        }
+        </script>
+
+        <style>
+            table {
+            border-collapse: collapse;
+            width: 90%;
+            }
+            
+            th, td {
+            text-align: left;
+            padding: 10px;
+            }
+            
+            tr:nth-last-child(even) {background-color: #f2f2f2;}
+        </style>
+    </head>
+    <body background="/media/14.jpg">
+    
+        <div style = "margin-top : 100px; margin-bottom:100px;" class = "container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <p class="lead">
+                        <h3 class = "mt-4">Pardus Bilgisayar</h3><br>
+                        <img class="img-fluid rounded" src="/media/4.jpg" alt=""><br><br>
+                        <hr>
+                        <h3 class="mt-4">Pardus Bilgisayarin Kullanicilari</h3>
+                        <br>
+                        <pre class = "prettyprint">
+                            musa
+                            systemd-coredump
+                            
+                        </pre>
+                        <hr><br><br>
+                        <hr>
+                        <h3 class="mt-4">Pardus Bilgisayarin Hostname'i</h3>
+                        <br>
+                        <p>{{article.title}} </p>
+                        <div style="overflow-x: auto;">
+                            <table>
+                                <tr>
+                                    <td>pardus</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        
+                        <hr><br><br>
+                        <hr>
+                        <h3 class="mt-4">Pardus Bilgisayarin Ip Adresleri</h3>
+                        <br>
+                        
+                        <div class="tab-pane" id="dfh" role="tabpanel" aria-labelledby="add_user-tab">
+                        <pre class = "prettyprint">
+                            lo               UNKNOWN        127.0.0.1/8 ::1/128
+                            enp0s3           UP             192.168.43.114/24 fe80::53ef:1882:783:fafe/64
+                        </pre>
+                        <hr><br><br>
+
+
+
+                        <hr>
+                        <h3 class="mt-4">Pardus Bilgisayarin Ram Durumu</h3>
+                        <div id="piechart_3d"style="width: 900px; height: 600px;"></div>
+                        <hr><br><br>
+                        <hr>
+                        <h3 class="mt-4">Pardus Bilgisayarin Disk Durumu</h3>
+                        <br>
+                        <pre class = "prettyprint">
+                        
+                        Dosyasistemi     Boy  Dolu   Boş Kull% Bağlanılan yer
+                        udev            2,1G     0  2,1G    0% /dev
+                        tmpfs           435M  996K  434M    1% /run
+                        /dev/sda1        31G  6,0G   23G   21% /
+                        tmpfs           2,2G     0  2,2G    0% /dev/shm
+                        tmpfs           5,0M  4,0K  5,0M    1% /run/lock
+                        tmpfs           435M   84K  434M    1% /run/user/1000
+                    
+                        </pre>
+                        <hr><br><br>
+                        <hr>
+                        
+                        <h3 class="mt-4">Pardus Bilgisayarin Model Durumu ve CPU Hizi</h3><br>
+                        <div style="overflow-x: auto;">
+                            <table>
+                                <tr>
+                                    <td>CPU MHz:                         2591.998</td>
+                                </tr>
+                                <tr>
+                                    <td>Model name:                      Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz</td>
+                                </tr>
+                            
+                            </table>
+                        </div>
+                    
+                        
+                    </p>
+                    <hr>  
+
+
+
+
+                    
+
+
+                </div>
+            
+            </div>
+            
+        </div>
+
+    </body>
+
+{% endblock body %}

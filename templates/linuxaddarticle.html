@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+<hr>
+<body background="\media\14.jpg">
+<div class="col-md-6 offset-md-3">
+    </body>
+    <h3>Pardus Bilgisayar Olustur </h3>
+    <hr>
+    <form method = "post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.media}}
+    {{form|crispy}}
+
+    <br>
+    <button type ="submit" class ="btn btn-danger">Pardus Bilgisayar Ekle</button>
+    </form>
+</div>
+</body>
+
+{% endblock body %}

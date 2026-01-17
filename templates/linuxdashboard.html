@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>Uzaktan Yonetim</h3>
+<hr>
+<p>
+    Hoşgeldiniz, <small>{{request.user.username}}</small>
+</p>
+<hr>
+<a class = "btn btn-danger" href = "{% url 'linux:linuxaddarticle' %}">Pardus Bilgisayar Ekle </a>
+<hr>
+{% if linuxs %}
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">User Adi</th>
+            <th scope="col">Ip Numarasi</th>
+            <th scope="col">Yazar</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for linux in linuxs %}
+          <tr>
+            <th scope="row">{{linux.id}}</th>
+            <td><a href="{% url 'linux:linuxdetail' linux.id %}">{{linux.kullaniciadi}}</a></td>
+            <td><a href="{% url 'linux:linuxdetail' linux.id %}">{{linux.ipadi}}</a></td>
+            <td>{{linux.author.username}}</td>
+            <td>{{linux.dateadi}}</td>
+            <td><a href="{% url 'linux:linuxupdate' linux.id %}" class = "btn btn-danger">Güncelle</a></td>
+            <td><a href="{% url 'linux:linuxdelete' linux.id %}" class = "btn btn-danger">Sil</a> </td>
+            
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+{% else %}
+
+<div class = "alert alert-danger">
+    Henüz bir Pardus Bilgisayariniz bulunmuyor..
+
+</div>
+{% endif %}
+
+
+
+{% endblock body %}

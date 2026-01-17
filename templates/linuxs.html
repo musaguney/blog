@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block body  %}
+<body background="\media\11.jpg">
+  
+<div class ="row" >
+    
+        <div class="col-md-10 offset-md-3">
+            <div class="col-lg-8">
+                <h3>Pardus Bilgisayarlar</h3>
+                <hr>
+                </div>
+        </div>
+</div>
+<div class ="row">
+    <div class="col-md-10 offset-md-3">
+        <div class="col-lg-8">
+            <form>
+                 {% csrf_token %} 
+                <input type="text" name = "keyword" class="input-sm" maxlength="64" placeholder="Ara...">
+              <button type="submit" class="btn btn-danger">Ara</button>
+            </form>
+      </div>
+    </div>
+
+</div>
+
+
+{% if articles %}
+
+{% for article in articles %}
+<div class="row">
+    <div class="col-md-10 offset-md-3">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+      <!-- Title -->
+      <a href="{% url 'linux:linuxdetail' linux.id %}"><h2 class="mt-4">{{linux.ipadi}}</h2></a> 
+        
+      <!-- Author -->
+      <p class="lead">
+        
+      </p>
+
+      <hr>
+
+      <!-- Date/Time -->
+      <p>{{linux.dateadi}}</p>
+      <hr>
+      <!-- Preview Image -->
+    
+     
+
+      <hr>
+
+      <!-- Post Content -->
+      <p class="lead">
+          {{linux.kullaniciadi|safe|truncatewords:50}}
+      </p>
+
+      <a style ="float : right;" href="{% url 'linux:linuxdetail' linux.id %}" class ="btn btn-danger">Ayrintilara Git</a>
+      <hr>
+         
+        </div>
+      </div>
+      </div>
+
+{% endfor %}
+
+
+{% else %}
+<div class ="row">
+    
+    <div class="col-md-10 offset-md-3">
+        <div class="col-lg-8">
+<div class = "alert alert-danger">
+   Pardus Bilgisayar Bulunamadı
+</div>
+</div>
+</div>
+</div>
+{% endif %}
+
+</body>
+{% endblock body %}
+<style>
+  body{
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKk0X4uPSdYASo_Xm5nTqTodxw6xXlc9zOm3yuAPjgNdKs4z4ni2c87F_pNqkx_cEIDl7OqX5SZcjuBeshVGQ2VUzFeV8FPleJgrSkw2XtyS9nTgwbXnxIrtOpGAXpi8yEJoMNGtbZ9cUsqs1DcXyDJ0gMN5k9se-MhWp7XdzY-s8atifLShFeVldJ/s3840/Spider-Man%20(PS4)%204k%20Ultra%20HD%20Wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  }
+  </style>

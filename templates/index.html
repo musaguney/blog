@@ -1,0 +1,22 @@
+{% extends "layout.html"%}
+
+{% block body %}
+<meta http-equiv="refresh" content="3;{% url 'article:articles' %}">
+<body background="https://www.arslandekor.net/images/urunler/Simetrik-Desen-Duvar-Kagidi-3298-resim-7009.jpg">
+<div class="jumbotron text-center">
+    
+    <h3>My Bloga Hosgeldiniz</h3>
+    <p>Bu blogta gelistirici iseniz gelistiriciler olarak blog yazilarinizi paylasabilir veya uzak bir pardus bilgisayara baglanabilirsiniz </p>
+
+</div>
+<p>
+
+    {% if request.user.is_authenticated %}
+        <h1>Giris Yapilmis, Hosgeldin {{request.user.username}} </h1>
+    {% else %}
+        <h1>Cikis Yapildi</h1>
+    {% endif %}
+
+</p>
+</body>
+{% endblock body %}

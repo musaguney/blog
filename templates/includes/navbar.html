@@ -1,0 +1,59 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="{% url 'article:articles' %}">Blog Sitem</a>
+    
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            {% if request.user.is_authenticated %}
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'linux:linuxs' %}">Pardus Bilgisayarlari</a>
+                </li>
+            {% else %}
+
+            {% endif %}
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">Hakkımızda</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'article:articles' %}">Makaleler</a>
+            </li>
+        
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'linux:linuxdashboard' %}">Uzaktan Yonetim</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'article:dashboard' %}">Kontrol Paneli</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'user:logout' %}">Cikis Yap</a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'user:login' %}">Giris Yap</a>
+                </li>
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'user:register' %}">Kayit Ol</a>
+                </li>
+            {% endif %}
+                
+
+        </ul>
+
+       
+
+        
+
+        
+      
+      
+    </div>
+
+
+</nav>
