@@ -1,4 +1,6 @@
-##UzakPC
+UZAK PC 
+
+
 Bu proje, yerel ağdaki veya uzaktaki Pardus (Linux) işletim sistemine sahip bilgisayarların, merkezi bir web arayüzü üzerinden yönetilmesini, izlenmesini ve verilerinin kayıt altına alınmasını sağlayan bir Django web uygulamasıdır.
 
 🚀 Proje Hakkında
